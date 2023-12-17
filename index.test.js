@@ -52,7 +52,7 @@ test("Verifica se o formato do e-mail retornado é válido", () => {
 
 //Testando valores booleanos, nulos e indefinidos
 
-function getNome(nome){
+/*function getNome(nome){
     return nome
 }
 
@@ -63,4 +63,37 @@ test("Verifica se o objeto é nulo ou indefinido", () =>{
     expect(nome).not.toBeDefined()
     expect(nome).not.toBeUndefined()
 
+})*/
+
+/*const {soma} = require("./index")
+
+test("Deveria retornar o valor quatro quando executar a soma", () => {
+    expect(soma(2,2)).toBe(4)
+    expect(soma(10,10)).toBe(20)
+
+})
+
+teste("Deve lançar uma exceção caso os dois valores recebidos não sejam numéricos", () => {
+    expect(() => soma("a", "b")).toThrow()
+    expect(() => soma("a", "b")).toThrow(Error)
+
+})*/
+
+//Criando um stub para teste de usuário falso 
+
+const consultaUsuario = jest.fn((id) => {
+    return {
+        id: 1,
+        nome: "joao",
+        idade: 40
+    }
+})
+
+test("Deveria retornar um usuario joao do banco de dados",  () => {
+    const usuario = consultaUsuario(1)
+    expect(usuario).toEqual({
+        id:1,
+        nome: "joao",
+        idade: 40
+    })
 })
